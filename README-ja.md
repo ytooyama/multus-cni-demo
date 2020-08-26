@@ -5,7 +5,7 @@
 * OpenStack
 * セキュリティグループで必要なポートを開放(6443/tcp 30000-32767/tcp etc ...)
 * Kubernetes 1.18 をOpenStackインスタンスで実行
-* Multus CNIを利用
+* Multus CNI v3.6を利用
 * FlannelもしくはCanalをデフォルトCNIとして利用
 
 ## 参考にした情報
