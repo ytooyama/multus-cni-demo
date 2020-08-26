@@ -1,5 +1,7 @@
 # Kubernetes + Multus CNI on OpenStack Demo
 
+![CLI](./cli.gif)
+
 ## デモ環境の構成
 
 * OpenStack
