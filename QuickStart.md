@@ -21,7 +21,7 @@ Certified: Docker and Containerd
 ## 5. Installing a Pod network add-on (CNI)
 - https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#pod-network
 
-Certified: Flannel, Canal, Caloco
+Certified: Flannel, Canal, Calico
 
 
 ## 6. Installing a Multus CNI
