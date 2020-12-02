@@ -1,0 +1,56 @@
+---
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: ipvlan-conf
+spec:
+  config: '{
+            "cniVersion": "0.3.1",
+            "plugins": [
+                {
+                    "type": "ipvlan",
+                    "capabilities": { "ips": true },
+                    "master": "ens4",
+                    "ipam": {
+                        "type": "static"
+                    }
+                }, {
+                    "capabilities": { "mac": true },
+                    "type": "tuning"
+                } ]
+        }'
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ipvlan-10.1.1.211
+  labels:
+    app: multus-ipvlan1
+  annotations:
+    k8s.v1.cni.cncf.io/networks: '[
+            { "name": "ipvlan-conf",
+              "ips": [ "10.1.1.211/24" ] }
+    ]'
+spec:
+  containers:
+  - name: ipvlanpod1
+    image: docker.io/ubuntu:20.04
+    tty: true
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ipvlan-10.1.1.212
+  labels:
+    app: multus-ipvlan2
+  annotations:
+    k8s.v1.cni.cncf.io/networks: '[
+            { "name": "ipvlan-conf",
+              "ips": [ "10.1.1.212/24" ] }
+    ]'
+spec:
+  containers:
+  - name: ipvlanpod2
+    image: docker.io/ubuntu:20.04
+    tty: true
+

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: unmultuspods
+spec:
+  containers:
+    - name: unmultuspods
+      image: docker.io/ubuntu:20.04
+      tty: true
